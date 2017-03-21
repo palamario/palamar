@@ -4,7 +4,6 @@ from oslo_i18n import translate as _
 from datetime import timedelta
 
 from django.shortcuts import render, get_object_or_404
-from django.http import HttpResponseRedirect
 from django.core.mail import EmailMultiAlternatives
 from django.template import Context
 from django.template.loader import render_to_string
