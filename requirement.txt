@@ -5,3 +5,4 @@ oslo.i18n==3.10.0
 requests==2.12.1
 django-settings-export==1.2.1
 pytz==2016.10
+docker==2.2.0
