@@ -55,14 +55,14 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'app',
     'authcp',
     'admincp',
+    'container',
     'image',
     'network',
     'security',
-    'server',
     'user_profile',
-    'provider',
 ]
 
 MIDDLEWARE = [
@@ -117,8 +117,7 @@ DATABASES = {
         'HOST': 'localhost',
         'PORT': '',
         'OPTIONS': {
-            'init_command': "SET sql_mode='STRICT_TRANS_TABLES'",
-            'init_command': 'SET innodb_strict_mode=1',
+            'init_command': 'SET sql_mode="STRICT_TRANS_TABLES"',
         },
     }
 }
@@ -169,7 +168,7 @@ STATIC_URL = '/static/'
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 
 # Host for sending e-mail.
-EMAIL_HOST = '35.156.60.241'
+EMAIL_HOST = 'mail.host'
 
 # Port for sending e-mail.
 EMAIL_PORT = 587
