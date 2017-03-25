@@ -55,6 +55,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django_cleanup',
     'app',
     'authcp',
     'admincp',
@@ -62,6 +63,7 @@ INSTALLED_APPS = [
     'image',
     'network',
     'security',
+    'sites',
     'user_profile',
 ]
 
@@ -161,6 +163,9 @@ STATICFILES_DIRS = [
 
 # media location
 MEDIA_ROOT = os.path.join(BASE_DIR, "static/media")
+
+# file location
+FILE_STORAGE = os.path.join(BASE_DIR, "files")
 
 
 STATIC_URL = '/static/'
