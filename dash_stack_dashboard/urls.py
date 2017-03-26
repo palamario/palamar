@@ -22,4 +22,5 @@ urlpatterns = [
     url(r'^admindj/', admin.site.urls),
     url(r'^$', views.index, name='index'),
     url(r'^auth/', include('authcp.urls')),
+    url(r'^admincp/sites/', include('sites.urls'))
 ]
