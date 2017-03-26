@@ -1,0 +1,78 @@
+{% extends "base.html" %}
+
+{% block title %}Admin | {{ title }}{% endblock title %}
+
+{% block content %}
+    <!-- Main content -->
+    <section class="content">
+      <div class="row">
+        <div class="col-md-12">
+          <!-- general form elements -->
+          <div class="box box-primary">
+            <div class="box-header with-border">
+              <h3 class="box-title">Quick Example</h3>
+            </div>
+            <!-- /.box-header -->
+            <!-- form start -->
+            <form enctype="multipart/form-data" method="post">
+            {% csrf_token %}
+              <div class="box-body">
+                <div class="form-group">
+                  <label for="name">Name:</label>
+                  <input type="text" name="name" class="form-control" id="name" value="{{ site.name }}" placeholder="Enter name of the site">
+                  <span class="text-red" style="margin-left: 15px;"> {{ form.errors.name.as_text }} </span>
+                </div>
+                <div class="form-group">
+                  <label for="url">URL:</label>
+                  <input type="text" name="url" class="form-control" id="url" value="{{ site.url }}" placeholder="Enter full API URL">
+                  <span class="text-red" style="margin-left: 15px;"> {{ form.errors.url.as_text }} </span>
+                </div>
+                <div class="form-group">
+                  <label for="client_cert">Client Certificate:</label>
+                  {{ site.client_cert }}<br />
+                  <b>Upload New:</b><br />
+                  <input type="file" name="client_cert" id="client_cert">
+                  <span class="text-red"> {{ form.errors.client_cert.as_text }} </span>
+
+                  <p class="help-block">Upload client certificate file, generated in docker node.</p>
+                </div>
+                <div class="form-group">
+                  <label for="client_key">Client Key:</label>
+                  {{ site.client_key }}<br />
+                  <b>Upload New:</b><br />
+                  <input type="file" name="client_key" id="client_key">
+                  <span class="text-red"> {{ form.errors.client_key.as_text }} </span>
+
+                  <p class="help-block">Upload client key file, generated in docker node.</p>
+                </div>
+                <div class="form-group">
+                  <label for="ca_cert">CA Certificate:</label>
+                  {{ site.ca_cert }}<br />
+                  <b>Upload New:</b><br />
+                  <input type="file" name="ca_cert" id="ca_cert">
+                  <span class="text-red" style="margin-left: 15px;"> {{ form.errors.ca_cert.as_text }} </span>
+
+                  <p class="help-block">Upload CA certificate file, generated in docker node.</p>
+                </div>
+                <div class="checkbox">
+                  <label>
+                    <input type="checkbox"> SSL Verification
+                  </label>
+                </div>
+              </div>
+              <!-- /.box-body -->
+
+              <div class="box-footer">
+                <button type="submit" value="Submit" class="btn btn-primary">Submit</button>
+              </div>
+            </form>
+          </div>
+          <!-- /.box -->
+        </div>
+        <!-- /.col -->
+      </div>
+      <!-- /.row -->
+    </section>
+    <!-- /.content -->
+
+{% endblock content %}

@@ -36,7 +36,9 @@
                       {{ site.ca_cert }}
                   </td>
                   <td>{{ site.ssl_verify }}</td>
-                  <td>Edit - Delete</td>
+                    <td><a href="{% url 'sites-edit' pk=site.pk %}">Edit</a> -
+                      Delete
+                  </td>
                 </tr>
                 {% endfor %}
                 </tbody>
