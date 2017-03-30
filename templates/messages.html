@@ -1,0 +1,13 @@
+{% block messages %}
+{% if messages %}
+ <div class="alert alert-success alert-dismissible">
+  <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+  <span>
+    <i class="icon fa fa-check"></i>
+    {% for message in messages %}
+    <span>{{ message }}</span>
+    {% endfor %}
+  </span>
+</div>
+{% endif %}
+{% endblock messages %}

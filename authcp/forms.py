@@ -1,4 +1,3 @@
-import re
 from oslo_i18n import translate as _
 from django.contrib.auth.models import User
 from django.core.exceptions import ObjectDoesNotExist
