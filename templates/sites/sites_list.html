@@ -2,16 +2,30 @@
 
 {% block title %}Admin | Sites List{% endblock title %}
 
+{% block content-header %}
+    <!-- Content Header (Page header) -->
+    <section class="content-header" style="margin-bottom: 10px;">
+      <h1>
+        {{ title }}
+        <small>{{ subtitle }}</small>
+      </h1>
+    <div class="breadcrumb">
+      <a href="{% url 'site-create' %}">
+        <button type="button" class="btn btn-block btn-info btn-flat">
+          New Site
+        </button>
+      </a>
+    </div>
+    </section>
+{% endblock content-header %}
+
 {% block content %}
     <!-- Main content -->
     <section class="content">
+      {% include "messages.html" %}
       <div class="row">
         <div class="col-xs-12">
           <div class="box">
-            <div class="box-header">
-              <h3 class="box-title">Hover Data Table</h3>
-            </div>
-            <!-- /.box-header -->
             <div class="box-body">
               <table id="example2" class="table table-bordered table-hover">
                 <thead>
@@ -36,8 +50,8 @@
                       {{ site.ca_cert }}
                   </td>
                   <td>{{ site.ssl_verify }}</td>
-                    <td><a href="{% url 'sites-edit' pk=site.pk %}">Edit</a> -
-                      Delete
+                    <td><a href="{% url 'site-edit' pk=site.pk %}">Edit</a> -
+                      <a href="{% url 'site-delete' pk=site.pk %}" onclick="return confirm('Are you sure you want to delete this site?');">Delete
                   </td>
                 </tr>
                 {% endfor %}
