@@ -19,6 +19,7 @@ class Profile(models.Model):
     selected_provider = models.IntegerField(null=True)
     activation_key = models.CharField(max_length=64,null=True)
     key_expires = models.DateTimeField(null=True)
+    selected_site = models.IntegerField(null=True)
 
     class Meta:
         verbose_name=('Profile')

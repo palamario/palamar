@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% load i18n %}
 
-{% block title %}Admin | Sites List{% endblock title %}
+{% block title %}Container List{% endblock title %}
 
 {% block content-header %}
     <!-- Content Header (Page header) -->
@@ -13,7 +13,7 @@
     <div class="breadcrumb">
       <a href="{% url 'site-create' %}">
         <button type="button" class="btn btn-block btn-info btn-flat">
-          New Site
+          {% trans "New Container" %}
         </button>
       </a>
     </div>
@@ -31,28 +31,25 @@
               <table id="example2" class="table table-bordered table-hover">
                 <thead>
                 <tr>
-                  <th>ID</th>
                   <th>Name</th>
-                  <th>URL</th>
-                  <th>SSL</th>
-                  <th>SSL Verify</th>
+                  <th>Image</th>
+                  <th>Network</th>
+                  <th>Status</th>
+                  <th>Since Created</th>
                   <th>Action</th>
                 </tr>
                 </thead>
                 <tbody>
-                {% for site in sites %}
+                {% for container in containers %}
                 <tr>
-                  <td>{{ site.id }}</td>
-                  <td>{{ site.name }}</td>
-                  <td>{{ site.url }}</td>
-                  <td>
-                      {{ site.client_cert }}<br />
-                      {{ site.client_key }}<br />
-                      {{ site.ca_cert }}
-                  </td>
-                  <td>{{ site.ssl_verify }}</td>
-                    <td><a href="{% url 'site-edit' pk=site.pk %}">Edit</a> -
-                      <a href="{% url 'site-delete' pk=site.pk %}" onclick="return confirm('Are you sure you want to delete this site?');">Delete
+                  <td>{{ container.name }}</td>
+                  <td>{{ container.attrs.Config.Image }}</td>
+                  <td>{{ container.attrs.NetworkSettings.IPAddress }}</td>
+                  <td>{{ container.status}}</td>
+                  {% load tz %}
+                  <td>{{ container.attrs.Created|timesince:value }}</td>
+                    <td><a href="">Edit</a> -
+                      <a href="" onclick="return confirm('Are you sure you want to delete this site?');">Delete
                   </td>
                 </tr>
                 {% endfor %}

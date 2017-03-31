@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-02-05 21:41+0000\n"
+"POT-Creation-Date: 2017-03-31 06:33+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,26 +18,106 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
-#: authcp/forms.py:9
+#: authcp/forms.py:8
 msgid "Email"
 msgstr ""
 
-#: authcp/forms.py:11
+#: authcp/forms.py:10
 msgid "Password"
 msgstr ""
 
-#: authcp/forms.py:15
+#: authcp/forms.py:14
 msgid "Password (Again)"
 msgstr ""
 
-#: authcp/forms.py:20
+#: authcp/forms.py:19
 msgid "You must accept TOS."
 msgstr ""
 
-#: authcp/forms.py:29
+#: authcp/forms.py:28
 msgid "Email address is not available."
 msgstr ""
 
-#: authcp/forms.py:37
+#: authcp/forms.py:36
 msgid "Password do not match."
+msgstr ""
+
+#: authcp/views.py:52
+msgid "Welcome to our cloud"
+msgstr ""
+
+#: sites/forms.py:9 sites/forms.py:37
+msgid "Name"
+msgstr ""
+
+#: sites/forms.py:14 sites/forms.py:42
+msgid "URL"
+msgstr ""
+
+#: sites/forms.py:19 sites/forms.py:47
+msgid "Client Certificate"
+msgstr ""
+
+#: sites/forms.py:23 sites/forms.py:51
+msgid "Client Key"
+msgstr ""
+
+#: sites/forms.py:27 sites/forms.py:55
+msgid "CA Certificate"
+msgstr ""
+
+#: sites/forms.py:31 sites/forms.py:59
+msgid "Verify SSL"
+msgstr ""
+
+#: sites/views.py:16
+msgid "New Site"
+msgstr ""
+
+#: sites/views.py:17
+msgid "create new site"
+msgstr ""
+
+#: sites/views.py:30
+msgid "New site has been created!"
+msgstr ""
+
+#: sites/views.py:44
+msgid "List of Sites"
+msgstr ""
+
+#: sites/views.py:45
+msgid "list all sites"
+msgstr ""
+
+#: sites/views.py:46
+msgid "Sites"
+msgstr ""
+
+#: sites/views.py:56 sites/views.py:58
+msgid "Edit Site"
+msgstr ""
+
+#: sites/views.py:57
+msgid "update details of a site"
+msgstr ""
+
+#: sites/views.py:76
+msgid "Site updated!"
+msgstr ""
+
+#: sites/views.py:92 sites/views.py:94
+msgid "Delete Site"
+msgstr ""
+
+#: sites/views.py:93
+msgid "are you sure to delete"
+msgstr ""
+
+#: sites/views.py:97
+msgid "Site deleted!"
+msgstr ""
+
+#: templates/container/container_list.html:16
+msgid "New Container"
 msgstr ""
