@@ -15,7 +15,8 @@ def index(request):
 def container_list(request):
     title = "Manage Container"
     subtitle = "create,list and manage containers"
-    conn = ConnectDocker(3)
+    user_profile = request.user.profile
+    conn = ConnectDocker(user_profile.selected_site)
     client = conn.docker_connect()
     containers = client.containers.list(all=True)
     current_date = datetime.datetime.now()

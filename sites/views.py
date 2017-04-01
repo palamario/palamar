@@ -4,6 +4,8 @@ from django.shortcuts import render,redirect,get_object_or_404
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 
+from user_profile.models import Profile
+
 from . models import Sites
 from .forms import SiteCreateForm,SiteEditForm
 
@@ -96,3 +98,10 @@ def site_delete(request,pk):
     site.delete()
     messages.success(request, _('Site deleted!'))
     return redirect("sites-list")
+
+@login_required
+def site_select(request,site_id,user_id):
+    user = get_object_or_404(Profile, pk=user_id)
+    user.selected_site = site_id
+    user.save()
+    return redirect(request.META['HTTP_REFERER'])

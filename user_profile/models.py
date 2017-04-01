@@ -14,9 +14,9 @@ class Profile(models.Model):
         null=True,
         blank=True,
     )
-    avatar = models.FileField(upload_to='static/avatar/%Y-%m-%d')
-    provider_password = models.CharField(max_length=50,null=True)
-    selected_provider = models.IntegerField(null=True)
+    avatar = models.FileField(upload_to='static/avatar',
+                              null=True,
+                              )
     activation_key = models.CharField(max_length=64,null=True)
     key_expires = models.DateTimeField(null=True)
     selected_site = models.IntegerField(null=True)

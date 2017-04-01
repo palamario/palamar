@@ -1,0 +1,14 @@
+{% load custom_tags %}
+{% return_sites Sites as sites%}
+{% if sites.count > 1 %}
+<li class="dropdown">
+    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+      Sites <span class="caret"></span>
+    </a>
+    <ul class="dropdown-menu" role="menu">
+      {% for site in sites %}
+      <li><a href="{% url 'site-select' site_id=site.id user_id=user.id %}">{{ site.name }}</a></li>
+    {% endfor %}
+    </ul>
+</li>
+{% endif %}
