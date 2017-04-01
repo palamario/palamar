@@ -1,8 +1,8 @@
-from oslo_i18n import translate as _
+import datetime
 
-from django.shortcuts import render,redirect,get_object_or_404
+
 from django.contrib.auth.decorators import login_required
-from django.contrib import messages
+from django.shortcuts import render
 
 from dash_stack_dashboard.drivers.docker_api import ConnectDocker
 
@@ -13,13 +13,14 @@ def index(request):
 
 @login_required
 def container_list(request):
-    title="Manage Container"
-    subtitle="create,list and manage containers"
-    conn=ConnectDocker(3)
-    client=conn.docker_connect()
-    containers=client.containers.list(all=True)
-
+    title = "Manage Container"
+    subtitle = "create,list and manage containers"
+    conn = ConnectDocker(3)
+    client = conn.docker_connect()
+    containers = client.containers.list(all=True)
+    current_date = datetime.datetime.now()
 
     return render(request, "container/container_list.html", {"containers": containers,
-                                                     "title": title,
-                                                     "subtitle": subtitle,})
+                                                             "title": title,
+                                                             "subtitle": subtitle,
+                                                             "current_date": current_date,})

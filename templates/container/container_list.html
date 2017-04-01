@@ -36,6 +36,7 @@
                   <th>Network</th>
                   <th>Status</th>
                   <th>Since Created</th>
+                  <th>Since Running</th>
                   <th>Action</th>
                 </tr>
                 </thead>
@@ -46,8 +47,19 @@
                   <td>{{ container.attrs.Config.Image }}</td>
                   <td>{{ container.attrs.NetworkSettings.IPAddress }}</td>
                   <td>{{ container.status}}</td>
-                  {% load tz %}
-                  <td>{{ container.attrs.Created|timesince:value }}</td>
+                  {% load custom_tags %}
+                  {% with container.attrs.Created|parse_iso as created_date %}
+                  <td>{{ created_date|since_created }}</td>
+                  {% endwith %}
+                  {% with container.attrs.State.StartedAt|parse_iso as started_date %}
+                  <td>
+                      {% if container.status == "running" %}
+                      {{ started_date|since_created }}
+                      {% else %}
+                      {% trans 'Not Running' %}
+                      {% endif %}
+                  </td>
+                  {% endwith %}
                     <td><a href="">Edit</a> -
                       <a href="" onclick="return confirm('Are you sure you want to delete this site?');">Delete
                   </td>
@@ -60,6 +72,7 @@
                   <th>Name</th>
                   <th>URL</th>
                   <th>SSL</th>
+                  <th>SSL Verify</th>
                   <th>SSL Verify</th>
                   <th>Action</th>
                 </tr>

@@ -92,6 +92,9 @@ TEMPLATES = [
                 'django.contrib.messages.context_processors.messages',
                 'django_settings_export.settings_export',
             ],
+            'libraries': {
+                'custom_tags': 'templatetags.custom_tags',
+            },
         },
     },
 ]
