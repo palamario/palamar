@@ -55,7 +55,6 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'smartfields',
     'app',
     'authcp',
     'admincp',
@@ -93,6 +92,9 @@ TEMPLATES = [
                 'django.contrib.messages.context_processors.messages',
                 'django_settings_export.settings_export',
             ],
+            'libraries': {
+                'custom_tags': 'templatetags.custom_tags',
+            },
         },
     },
 ]
@@ -162,7 +164,7 @@ STATICFILES_DIRS = [
 ]
 
 # media location
-MEDIA_ROOT = os.path.join(BASE_DIR, "static/media")
+MEDIA_ROOT = os.path.join(BASE_DIR, "static")
 
 # file location
 FILE_STORAGE = os.path.join(BASE_DIR, "files")

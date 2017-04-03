@@ -1,0 +1,54 @@
+{% load static %}
+{% load i18n %}
+<div class="navbar-custom-menu">
+  <ul class="nav navbar-nav">
+    {% load custom_tags %}
+    {% return_sites Sites as sites%}
+    {% if sites.count > 1 %}
+    <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+          Sites <span class="caret"></span>
+        </a>
+        <ul class="dropdown-menu" role="menu">
+          {% for site in sites %}
+          <li>
+              <a href="{% url 'site-select' site_id=site.id user_id=user.id %}">
+                  {% if user.profile.selected_site == site.id %}
+                  <span style="font-weight: bold ;">{{ site.name }}</span> <i class="fa fa-check"></i>
+                  {% else %}
+                  <span>{{ site.name }}</span>
+                  {% endif %}
+              </a>
+          </li>
+        {% endfor %}
+        </ul>
+    </li>
+    {% endif %}
+    <!-- User Account: style can be found in dropdown.less -->
+    <li class="dropdown user user-menu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+         <img src="{% static user.profile.avatar %}" class="user-image" alt="User Image">
+        <span class="hidden-xs">{{ user.first_name }} {{ user.last_name }}</span>
+      </a>
+      <ul class="dropdown-menu">
+        <!-- User image -->
+        <li class="user-header">
+          <img src="{% static user.profile.avatar %}" class="img-circle" alt="User Image">
+           <p>
+            {{ user.first_name }} {{ user.last_name }}
+          </p>
+        </li>
+        <!-- Menu Body -->
+        <!-- Menu Footer-->
+        <li class="user-footer">
+          <div class="pull-left">
+            <a href="#" class="btn btn-default btn-flat">{% trans 'Profile' %}</a>
+          </div>
+          <div class="pull-right">
+            <a href="{% url 'logout' %}" class="btn btn-default btn-flat">{% trans 'Sign out' %}</a>
+          </div>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>

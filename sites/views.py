@@ -4,12 +4,16 @@ from django.shortcuts import render,redirect,get_object_or_404
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 
+from user_profile.models import Profile
+
 from . models import Sites
 from .forms import SiteCreateForm,SiteEditForm
+
 
 @login_required
 def index(request):
     return render(request, "sites/index.html", {})
+
 
 @login_required
 def site_create(request):
@@ -39,6 +43,7 @@ def site_create(request):
         "form": form,
         })
 
+
 @login_required
 def sites_list(request):
     title=_('List of Sites')
@@ -50,6 +55,7 @@ def sites_list(request):
                                                      "title": title,
                                                      "breadcrumb": breadcrumb,
                                                      "subtitle": subtitle,})
+
 
 @login_required
 def site_edit(request,pk):
@@ -87,12 +93,18 @@ def site_edit(request,pk):
         "form": form,
         })
 
+
 @login_required
 def site_delete(request,pk):
-    title = _('Delete Site')
-    subtitle = _('are you sure to delete')
-    breadcrumb = _('Delete Site')
     site=get_object_or_404(Sites,pk=pk)
     site.delete()
     messages.success(request, _('Site deleted!'))
     return redirect("sites-list")
+
+
+@login_required
+def site_select(request,site_id,user_id):
+    user = get_object_or_404(Profile, pk=user_id)
+    user.selected_site = site_id
+    user.save()
+    return redirect(request.META['HTTP_REFERER'])

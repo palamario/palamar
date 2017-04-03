@@ -1,3 +1,5 @@
+{% load i18n %}
+
 Hello,
 
 Welcome to our cloud platform.
