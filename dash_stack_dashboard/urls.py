@@ -22,6 +22,6 @@ urlpatterns = [
     url(r'^admindj/', admin.site.urls),
     url(r'^$', views.index, name='index'),
     url(r'^auth/', include('authcp.urls')),
-    url(r'^container/', include('container.urls')),
     url(r'^admincp/sites/', include('sites.urls')),
+    url(r'^container/', include('container.urls')),
 ]

@@ -60,8 +60,24 @@
                       {% endif %}
                   </td>
                   {% endwith %}
-                    <td><a href="">Edit</a> -
-                      <a href="" onclick="return confirm('Are you sure you want to delete this container?');">Delete
+                    <td>
+                      {% if container.status == 'running' %}
+                      <a href="{% url 'container-stop' container_id=container.id %}" onclick="return confirm('Are you sure you want to STOP this container?');">
+                          {% trans 'Stop' %}
+                      </a>
+                      {% else %}
+                      <a href="{% url 'container-start' container_id=container.id %}">
+                          {% trans 'Start' %}
+                      </a>
+                      {% endif %}
+                      |
+                      <a href="">Edit</a>
+                      {% if container.status != "running" %}
+                      -
+                      <a href="{% url 'container-remove' container_id=container.id %}" onclick="return confirm('Are you sure you want to remove this container?');">
+                          {% trans 'Remove' %}
+                      </a>
+                      {% endif %}
                   </td>
                 </tr>
                 {% endfor %}

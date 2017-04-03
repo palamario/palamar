@@ -14,7 +14,7 @@ class Profile(models.Model):
         null=True,
         blank=True,
     )
-    avatar = models.FileField(upload_to='static/avatar',
+    avatar = models.FileField(upload_to='avatar',
                               null=True,
                               )
     activation_key = models.CharField(max_length=64,null=True)

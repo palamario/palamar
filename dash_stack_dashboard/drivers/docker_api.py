@@ -24,3 +24,17 @@ class ConnectDocker(object):
         )
         client = docker.DockerClient(base_url=site.url, tls=tls_config)
         return client
+
+    def docker_connect_api(self):
+        site=get_object_or_404(Sites, pk=self.selected_site)
+
+        tls_config = docker.tls.TLSConfig(
+            client_cert=(
+                "%s/%s" % (file_storage_dir,site.client_cert),
+                "%s/%s" % (file_storage_dir,site.client_key),
+                ),
+            ca_cert = "%s/%s" % (file_storage_dir,site.ca_cert),
+            verify=site.ssl_verify
+        )
+        client = docker.APIClient(base_url=site.url, tls=tls_config)
+        return client

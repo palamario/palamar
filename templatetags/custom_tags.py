@@ -29,7 +29,14 @@ def since_created(value):
     else:
         hour = "hour"
 
-    if td.days <= 0:
+    if (td.seconds // 60) > 1:
+        minute = "minutes"
+    else:
+        minute = "minute"
+
+    if (td.seconds // 3600) < 1:
+        readable_format = _('%s %s' % (td.seconds // 60, minute))
+    elif td.days <= 0:
         readable_format = _('%s %s' % (td.seconds // 3600, hour))
     else:
         readable_format = _('%s %s, %s %s' % (td.days,day,td.seconds // 3600,hour))
