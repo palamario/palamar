@@ -1,0 +1,109 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block title %}Container List{% endblock title %}
+
+{% block content-header %}
+    <!-- Content Header (Page header) -->
+    <section class="content-header" style="margin-bottom: 10px;">
+      <h1>
+        {{ title }}
+        <small>{{ subtitle }}</small>
+      </h1>
+    <div class="breadcrumb">
+      <a href="{% url 'site-create' %}">
+        <button type="button" class="btn btn-block btn-info btn-flat">
+          {% trans "New Container" %}
+        </button>
+      </a>
+    </div>
+    </section>
+{% endblock content-header %}
+
+{% block content %}
+    <!-- Main content -->
+    <section class="content">
+      {% include "messages.html" %}
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="box">
+            <div class="box-body">
+              <table id="example2" class="table table-bordered table-hover">
+                <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>Image</th>
+                  <th>Network</th>
+                  <th>Status</th>
+                  <th>Since Created</th>
+                  <th>Since Running</th>
+                  <th>Action</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for container in containers %}
+                <tr>
+                  <td>{{ container.name }}</td>
+                  <td>{{ container.attrs.Config.Image }}</td>
+                  <td>{{ container.attrs.NetworkSettings.IPAddress }}</td>
+                  <td>{{ container.status}}</td>
+                  {% load custom_tags %}
+                  {% with container.attrs.Created|parse_iso as created_date %}
+                  <td>{{ created_date|since_created }}</td>
+                  {% endwith %}
+                  {% with container.attrs.State.StartedAt|parse_iso as started_date %}
+                  <td>
+                      {% if container.status == "running" %}
+                      {{ started_date|since_created }}
+                      {% else %}
+                      {% trans 'Not Running' %}
+                      {% endif %}
+                  </td>
+                  {% endwith %}
+                    <td>
+                      {% if container.status == 'running' %}
+                      <a href="{% url 'container-stop' container_id=container.id %}" onclick="return confirm('Are you sure you want to STOP this container?');">
+                          {% trans 'Stop' %}
+                      </a>
+                      {% else %}
+                      <a href="{% url 'container-start' container_id=container.id %}">
+                          {% trans 'Start' %}
+                      </a>
+                      {% endif %}
+                      |
+                      <a href="">Edit</a>
+                      {% if container.status != "running" %}
+                      -
+                      <a href="{% url 'container-remove' container_id=container.id %}" onclick="return confirm('Are you sure you want to remove this container?');">
+                          {% trans 'Remove' %}
+                      </a>
+                      {% endif %}
+                  </td>
+                </tr>
+                {% endfor %}
+                </tbody>
+                <tfoot>
+                <tr>
+                  <th>Name</th>
+                  <th>Image</th>
+                  <th>Network</th>
+                  <th>Status</th>
+                  <th>Since Created</th>
+                  <th>Since Running</th>
+                  <th>Action</th>
+                </tr>
+                </tfoot>
+              </table>
+            </div>
+            <!-- /.box-body -->
+          </div>
+          <!-- /.box -->
+
+        </div>
+        <!-- /.col -->
+      </div>
+      <!-- /.row -->
+    </section>
+    <!-- /.content -->
+
+{% endblock content %}

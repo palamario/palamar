@@ -1,20 +1,13 @@
 from __future__ import unicode_literals
 
 import os
-import uuid
 
 from django.core.files.storage import FileSystemStorage
 from django.db import models
 from django.conf import settings
-from smartfields import fields
 
 # file storage
 upload_storage = FileSystemStorage(location=settings.FILE_STORAGE)
-
-
-def unique_file_name():
-    filename = "%s" % (uuid.uuid4())
-    return filename
 
 
 class Sites(models.Model):
