@@ -14,6 +14,7 @@ from django.contrib.auth.models import User
 
 from .forms import UserRegisterForm
 from user_profile.models import Profile
+from sites.models import Sites
 
 # email sending function
 def send_email(con,subject,email_to,email_from):
@@ -39,13 +40,17 @@ def register_user(request):
                 form.cleaned_data['email'],
                 form.cleaned_data['password2'],
             )
-            u.is_active=False
+            u.is_active = False
             u.save()
             salt = hashlib.sha1(str(random.random())).hexdigest()[:5]
             usernamesalt=form.cleaned_data['email']
-            profile=Profile.objects.get(user_id=u.id)
-            profile.activation_key=hashlib.sha1(salt+usernamesalt).hexdigest()
+            profile = Profile.objects.get(user_id=u.id)
+            profile.activation_key = hashlib.sha1(salt+usernamesalt).hexdigest()
             profile.key_expires=timezone.now() + timedelta(days=2)
+            # get first site
+            site = Sites.objects.first()
+            if site:
+                profile.selected_site = site.id
             profile.save()
             site_url=settings.SITE_ROOT_URL
             send_email({'u': u, 'profile': profile, 'site_url': site_url},
