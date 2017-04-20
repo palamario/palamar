@@ -49,7 +49,9 @@ def register_user(request):
             profile.key_expires=timezone.now() + timedelta(days=2)
             # get first site
             site = Sites.objects.first()
+            # if there is a site
             if site:
+                # save site id to profile
                 profile.selected_site = site.id
             profile.save()
             site_url=settings.SITE_ROOT_URL
