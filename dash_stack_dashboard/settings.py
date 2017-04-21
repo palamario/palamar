@@ -47,11 +47,14 @@ INSTALLED_APPS = [
     'authcp',
     'admincp',
     'container',
+    'domain',
     'image',
     'network',
     'security',
     'sites',
     'user_profile',
+    'project',
+    'role',
 ]
 
 MIDDLEWARE = [
