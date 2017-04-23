@@ -4,6 +4,10 @@ from django.core.exceptions import ObjectDoesNotExist
 
 from django import forms
 
+from domain.models import Domain
+from project.models import Project
+
+
 class UserRegisterForm(forms.Form):
     email = forms.EmailField(label=_('Email'))
     password1 = forms.CharField(
@@ -13,6 +17,11 @@ class UserRegisterForm(forms.Form):
     password2 = forms.CharField(
         label=_('Password (Again)'),
         widget=forms.PasswordInput(),
+    )
+    project = forms.CharField(
+        label=_('Project Name'),
+        required=True,
+        error_messages={'required': _('Please enter your project name!')}
     )
     tos = forms.BooleanField(
         required=True,
@@ -34,3 +43,12 @@ class UserRegisterForm(forms.Form):
             if password1 == password2:
                 return password2
         raise forms.ValidationError(_('Password do not match.'))
+
+    def clean_project(self):
+        project = self.cleaned_data['project']
+        try:
+            Project.objects.get(name=project)
+            Domain.objects.get(name=project)
+        except ObjectDoesNotExist:
+            return project
+        raise forms.ValidationError(_('Project name is not available.'))

@@ -9,13 +9,13 @@ from project.models import Project
 
 class Role(models.Model):
     name = models.CharField(max_length=32)
-    extra = models.TextField()
+    extra = models.TextField(default="{}")
 
     def __str__(self):
         return self.name
 
-class Assignment(models.Model):
 
+class Assignment(models.Model):
     ASSIGNMENT_TYPES = ((1, 'UserProject'),
                         (2, 'GroupProject'),
                         (3, 'UserDomain'),
