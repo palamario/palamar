@@ -62,7 +62,7 @@ class Reservations(models.Model):
     deleted_at = models.DateTimeField()
     deleted = models.BooleanField(default=False)
     usage = models.ForeignKey(Usages)
-    project = models.ForeignKey(Project)
+    project = models.ForeignKey(Project, null=True)
     domain = models.ForeignKey(Domain, null=True)
     resource = models.ForeignKey(Resources)
     expire = models.DateTimeField()
