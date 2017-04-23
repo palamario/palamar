@@ -29,6 +29,11 @@
         <input name="password2" type="password" class="form-control" placeholder="Retype password">
         <span class="glyphicon glyphicon-log-in form-control-feedback"></span>
       </div>
+      <span class="text-red"> {{ form.errors.project.as_text }} </span>
+      <div class="form-group has-feedback">
+        <input name="project" type="text" class="form-control" placeholder="Enter a project name">
+        <span class="glyphicon glyphicon-folder-close form-control-feedback"></span>
+      </div>
       <div class="row">
         <span class="text-red" style="margin-left: 15px;"> {{ form.errors.tos.as_text }} </span>
         <div class="col-xs-8">
