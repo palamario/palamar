@@ -7,7 +7,7 @@ class RoleAdmin(admin.ModelAdmin):
     pass
 
 class AssignmentAdmin(admin.ModelAdmin):
-    list_display = ('id', 'type', 'actor', 'target_domain', 'target_project')
+    list_display = ('id', 'role','type', 'actor', 'target_domain', 'target_project')
     list_filter = ('type', 'actor', 'role')
     pass
 
