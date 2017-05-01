@@ -7,3 +7,4 @@ django-settings-export==1.2.1
 pytz==2016.10
 docker==2.2.0
 dateutils==0.6.6
+django-cuser==2017.3.16

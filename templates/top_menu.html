@@ -3,7 +3,9 @@
 <div class="navbar-custom-menu">
   <ul class="nav navbar-nav">
     {% load custom_tags %}
-    {% return_sites Sites as sites%}
+    {% return_sites as sites %}
+    {% return_assigned_domains as assigned_domains %}
+    {% return_assigned_projects as assigned_projects %}
     {% if sites.count > 1 %}
     <li class="dropdown">
         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
@@ -17,6 +19,46 @@
                   <span style="font-weight: bold ;">{{ site.name }}</span> <i class="fa fa-check"></i>
                   {% else %}
                   <span>{{ site.name }}</span>
+                  {% endif %}
+              </a>
+          </li>
+        {% endfor %}
+        </ul>
+    </li>
+    {% endif %}
+    {% if assigned_domains.count > 1 %}
+    <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+          Domains <span class="caret"></span>
+        </a>
+        <ul class="dropdown-menu" role="menu">
+          {% for a in assigned_domains %}
+          <li>
+              <a href="{% url 'domain-select' domain_id=a.target_domain_id user_id=user.id %}">
+                  {% if user.profile.selected_domain == a.target_domain_id %}
+                  <span style="font-weight: bold ;">{{ a.target_domain__name }}</span> <i class="fa fa-check"></i>
+                  {% else %}
+                  <span>{{ a.target_domain__name }}</span>
+                  {% endif %}
+              </a>
+          </li>
+        {% endfor %}
+        </ul>
+    </li>
+    {% endif %}
+    {% if assigned_projects.count > 1 %}
+    <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+          Projects <span class="caret"></span>
+        </a>
+        <ul class="dropdown-menu" role="menu">
+          {% for p in assigned_projects %}
+          <li>
+              <a href="#">
+                  {% if user.profile.selected_domain == p.id %}
+                  <span style="font-weight: bold ;">{{ p.name }}</span> <i class="fa fa-check"></i>
+                  {% else %}
+                  <span>{{ p.name }}</span>
                   {% endif %}
               </a>
           </li>

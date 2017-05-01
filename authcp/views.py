@@ -53,14 +53,6 @@ def register_user(request):
             profile = Profile.objects.get(user_id=u.id)
             profile.activation_key = hashlib.sha1(salt + usernamesalt).hexdigest()
             profile.key_expires = timezone.now() + timedelta(days=2)
-            # get first site
-            site = Sites.objects.first()
-            # if there is a site
-            if site:
-                # save site id to profile
-                profile.selected_site = site.id
-            profile.save()
-            # create domain for new user
             domain = Domain.objects.create(
                 name=form.cleaned_data['project'],
             )
@@ -88,6 +80,19 @@ def register_user(request):
                 target_project=project,
                 role=r,
             )
+            # get first site
+            site = Sites.objects.first()
+            # get domain assignment
+            domain = Assignment.objects.filter(actor=u.id)
+            project = Assignment.objects.filter(actor=u.id)
+            # if there is a site
+            if site:
+                # save site id to profile
+                profile.selected_site = site.id
+            profile.selected_domain = domain[0].target_domain_id
+            profile.selected_project = project[0].target_project_id
+            profile.save()
+            # create domain for new user
             site_url = settings.SITE_ROOT_URL
             send_email({'u': u, 'profile': profile, 'site_url': site_url},
                        _('Welcome to our cloud'),

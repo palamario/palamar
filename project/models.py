@@ -6,7 +6,7 @@ from domain.models import Domain
 
 
 class Project(models.Model):
-    name = models.CharField(max_length=64, db_index=True, unique=True)
+    name = models.CharField(max_length=64, unique=True)
     extra = models.TextField(default="{}")
     description = models.TextField()
     enabled = models.BooleanField(default=True)
