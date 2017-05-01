@@ -24,4 +24,6 @@ urlpatterns = [
     url(r'^auth/', include('authcp.urls')),
     url(r'^admincp/sites/', include('sites.urls')),
     url(r'^container/', include('container.urls')),
+    url(r'^domain/', include('domain.urls')),
+    url(r'^project/', include('project.urls')),
 ]
