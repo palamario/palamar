@@ -23,8 +23,12 @@ class Assignment(models.Model):
 
     type = models.IntegerField(null=True, choices=ASSIGNMENT_TYPES)
     actor = models.ForeignKey(User)
-    target_domain = models.ForeignKey(Domain, null=True, blank=True)
-    target_project = models.ForeignKey(Project, null=True, blank=True)
+    target_domain = models.ForeignKey(Domain,
+                                      null=True,
+                                      blank=True)
+    target_project = models.ForeignKey(Project,
+                                       null=True,
+                                       blank=True)
     role = models.ForeignKey(Role)
 
     def __int__(self):

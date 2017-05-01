@@ -53,8 +53,15 @@ def return_sites():
 @register.assignment_tag()
 def return_assigned_projects():
     current_user = CuserMiddleware.get_user()
-    from project.models import Project
-    projects = Project.objects.filter(domain_id=current_user.profile.selected_domain)
+    from user_profile.models import Profile
+    from role.models import Assignment
+    from django.db.models import Count
+    current_user_profile = Profile.objects.get(user_id=current_user.id)
+    projects = Assignment.objects.filter(type=1,
+                                         actor=current_user.id,
+                                         target_domain=current_user_profile.selected_domain)
+    projects = projects.values('target_project_id', 'target_project__name')
+    projects = projects.annotate(dcount=Count('target_project_id'))
     return projects
 
 @register.assignment_tag()
@@ -65,5 +72,4 @@ def return_assigned_domains():
     assigned_domains = Assignment.objects.filter(type=3, actor=current_user.id)
     assigned_domains = assigned_domains.values('target_domain_id', 'target_domain__name')
     assigned_domains = assigned_domains.annotate(dcount=Count('target_domain_id'))
-    assigned_domains = assigned_domains.exclude(target_domain__name='default')
     return assigned_domains
