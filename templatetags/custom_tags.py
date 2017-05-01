@@ -65,4 +65,5 @@ def return_assigned_domains():
     assigned_domains = Assignment.objects.filter(type=3, actor=current_user.id)
     assigned_domains = assigned_domains.values('target_domain_id', 'target_domain__name')
     assigned_domains = assigned_domains.annotate(dcount=Count('target_domain_id'))
+    assigned_domains = assigned_domains.exclude(target_domain__name='default')
     return assigned_domains

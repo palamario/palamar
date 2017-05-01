@@ -32,13 +32,13 @@
           Domains <span class="caret"></span>
         </a>
         <ul class="dropdown-menu" role="menu">
-          {% for a in assigned_domains %}
+          {% for assigned_domain in assigned_domains %}
           <li>
-              <a href="{% url 'domain-select' domain_id=a.target_domain_id user_id=user.id %}">
-                  {% if user.profile.selected_domain == a.target_domain_id %}
-                  <span style="font-weight: bold ;">{{ a.target_domain__name }}</span> <i class="fa fa-check"></i>
+              <a href="{% url 'domain-select' domain_id=assigned_domain.target_domain_id user_id=user.id %}">
+                  {% if user.profile.selected_domain == assigned_domain.target_domain_id %}
+                  <span style="font-weight: bold ;">{{ assigned_domain.target_domain__name }}</span> <i class="fa fa-check"></i>
                   {% else %}
-                  <span>{{ a.target_domain__name }}</span>
+                  <span>{{ assigned_domain.target_domain__name }}</span>
                   {% endif %}
               </a>
           </li>
@@ -52,13 +52,13 @@
           Projects <span class="caret"></span>
         </a>
         <ul class="dropdown-menu" role="menu">
-          {% for p in assigned_projects %}
+          {% for assigned_project in assigned_projects %}
           <li>
-              <a href="#">
-                  {% if user.profile.selected_domain == p.id %}
-                  <span style="font-weight: bold ;">{{ p.name }}</span> <i class="fa fa-check"></i>
+              <a href="{% url 'project-select' project_id=assigned_project.id user_id=user.id %}">
+                  {% if user.profile.selected_project == assigned_project.id %}
+                  <span style="font-weight: bold ;">{{ assigned_project.name }}</span> <i class="fa fa-check"></i>
                   {% else %}
-                  <span>{{ p.name }}</span>
+                  <span>{{ assigned_project.name }}</span>
                   {% endif %}
               </a>
           </li>
