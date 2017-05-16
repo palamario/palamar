@@ -3,7 +3,9 @@
 <div class="navbar-custom-menu">
   <ul class="nav navbar-nav">
     {% load custom_tags %}
-    {% return_sites Sites as sites%}
+    {% return_sites as sites %}
+    {% return_assigned_domains as assigned_domains %}
+    {% return_assigned_projects as assigned_projects %}
     {% if sites.count > 1 %}
     <li class="dropdown">
         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
@@ -17,6 +19,46 @@
                   <span style="font-weight: bold ;">{{ site.name }}</span> <i class="fa fa-check"></i>
                   {% else %}
                   <span>{{ site.name }}</span>
+                  {% endif %}
+              </a>
+          </li>
+        {% endfor %}
+        </ul>
+    </li>
+    {% endif %}
+    {% if assigned_domains.count > 0 or assigned_projects.count > 0 %}
+    <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+          Domains <span class="caret"></span>
+        </a>
+        <ul class="dropdown-menu" role="menu">
+          {% for assigned_domain in assigned_domains %}
+          <li>
+              <a href="{% url 'domain-select' domain_id=assigned_domain.target_domain_id user_id=user.id %}">
+                  {% if user.profile.selected_domain == assigned_domain.target_domain_id %}
+                  <span style="font-weight: bold ;">{{ assigned_domain.target_domain__name }}</span> <i class="fa fa-check"></i>
+                  {% else %}
+                  <span>{{ assigned_domain.target_domain__name }}</span>
+                  {% endif %}
+              </a>
+          </li>
+        {% endfor %}
+        </ul>
+    </li>
+    {% endif %}
+    {% if assigned_domains.count > 0 and assigned_projects.count %}
+    <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+          Projects <span class="caret"></span>
+        </a>
+        <ul class="dropdown-menu" role="menu">
+          {% for assigned_project in assigned_projects %}
+          <li>
+              <a href="{% url 'project-select' project_id=assigned_project.target_project_id user_id=user.id %}">
+                  {% if user.profile.selected_project == assigned_project.target_project_id %}
+                  <span style="font-weight: bold ;">{{ assigned_project.target_project__name }}</span> <i class="fa fa-check"></i>
+                  {% else %}
+                  <span>{{ assigned_project.target_project__name }}</span>
                   {% endif %}
               </a>
           </li>
