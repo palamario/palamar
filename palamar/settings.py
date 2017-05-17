@@ -1,5 +1,5 @@
 """
-Django settings for dash_stack project.
+Django settings for palamar project.
 """
 
 import os
@@ -14,9 +14,9 @@ SECRET_KEY = '@b*)c#tfs%382t87hojq!1pou#f_3557kf(w@a++y$j5)+$rmd'
 DEBUG = True
 
 ALLOWED_HOSTS = [
-    'dash-stack',
+    'palamar',
     '127.0.0.1',
-    'demo.dash-stack.com'
+    'demo.palamar.com'
 ]
 
 # fullt qualified hostname or domain. Ex <http://domain.tld/>
@@ -71,7 +71,7 @@ MIDDLEWARE = [
     'cuser.middleware.CuserMiddleware',
 ]
 
-ROOT_URLCONF = 'dash_stack_dashboard.urls'
+ROOT_URLCONF = 'palamar.urls'
 
 TEMPLATES = [
     {
@@ -93,7 +93,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'dash_stack_dashboard.wsgi.application'
+WSGI_APPLICATION = 'palamar.wsgi.application'
 
 # logging configuration
 
@@ -109,7 +109,7 @@ LOGGING = {
         'file': {
             'level': LOG_LEVEL,
             'class': 'logging.FileHandler',
-            'filename': '/var/log/dash-stack/debug.log',
+            'filename': '/var/log/palamar/debug.log',
         },
     },
     'loggers': {
@@ -135,8 +135,8 @@ LOGGING = {
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'dash_stack',
-        'USER': 'dash-stack',
+        'NAME': 'palamar',
+        'USER': 'root',
         'PASSWORD': 'password',
         'HOST': 'localhost',
         'PORT': '',
@@ -204,4 +204,4 @@ EMAIL_PORT = 587
 EMAIL_HOST_USER = ''
 EMAIL_HOST_PASSWORD = ''
 EMAIL_USE_TLS = False
-DEFAULT_EMAIL_FROM = 'admin@dash-stack.org'
+DEFAULT_EMAIL_FROM = 'admin@palamar.org'

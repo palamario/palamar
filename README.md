@@ -1,2 +1,2 @@
-# dash-stack
+# palamar
 Docker controle panel for providers.
