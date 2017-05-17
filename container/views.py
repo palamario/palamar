@@ -7,7 +7,7 @@ from django.shortcuts import render,redirect
 from django.contrib import messages
 
 
-from dash_stack_dashboard.drivers.docker_api import ConnectDocker
+from palamar.drivers.docker_api import ConnectDocker
 
 
 @login_required

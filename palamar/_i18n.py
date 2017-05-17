@@ -2,7 +2,7 @@ import oslo_i18n
 
 oslo_i18n.enable_lazy()
 
-DOMAIN = "dash_stack_dashboard"
+DOMAIN = "palamar"
 
 _translators = oslo_i18n.TranslatorFactory(domain=DOMAIN)
 
