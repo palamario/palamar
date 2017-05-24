@@ -20,10 +20,10 @@ class Migration(migrations.Migration):
                 ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('name', models.CharField(max_length=64, null=True)),
                 ('url', models.CharField(max_length=512, null=True)),
-                ('client_cert', models.FileField(storage=django.core.files.storage.FileSystemStorage(location=b'/home/kelepirci/dash-stack-dashboard/dash-stack/files'), upload_to='ssl')),
-                ('client_key', models.FileField(storage=django.core.files.storage.FileSystemStorage(location=b'/home/kelepirci/dash-stack-dashboard/dash-stack/files'), upload_to='ssl')),
+                ('client_cert', models.FileField(storage=django.core.files.storage.FileSystemStorage(location=b'/home/kelepirci/palamar-dashboard/palamar/files'), upload_to='ssl')),
+                ('client_key', models.FileField(storage=django.core.files.storage.FileSystemStorage(location=b'/home/kelepirci/palamar-dashboard/palamar/files'), upload_to='ssl')),
                 ('ssl_verify', models.BooleanField(default=True)),
-                ('ca_cert', models.FileField(storage=django.core.files.storage.FileSystemStorage(location=b'/home/kelepirci/dash-stack-dashboard/dash-stack/files'), upload_to='ssl')),
+                ('ca_cert', models.FileField(storage=django.core.files.storage.FileSystemStorage(location=b'/home/kelepirci/palamar-dashboard/palamar/files'), upload_to='ssl')),
             ],
             options={
                 'ordering': ('name',),

@@ -16,16 +16,16 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='sites',
             name='ca_cert',
-            field=models.FileField(storage=django.core.files.storage.FileSystemStorage(location=b'/home/kelepirci/dash-stack-dashboard/dash-stack/files'), upload_to=b''),
+            field=models.FileField(storage=django.core.files.storage.FileSystemStorage(location=b'/home/kelepirci/palamar-dashboard/palamar/files'), upload_to=b''),
         ),
         migrations.AlterField(
             model_name='sites',
             name='client_cert',
-            field=models.FileField(storage=django.core.files.storage.FileSystemStorage(location=b'/home/kelepirci/dash-stack-dashboard/dash-stack/files'), upload_to=b''),
+            field=models.FileField(storage=django.core.files.storage.FileSystemStorage(location=b'/home/kelepirci/palamar-dashboard/palamar/files'), upload_to=b''),
         ),
         migrations.AlterField(
             model_name='sites',
             name='client_key',
-            field=models.FileField(storage=django.core.files.storage.FileSystemStorage(location=b'/home/kelepirci/dash-stack-dashboard/dash-stack/files'), upload_to=b''),
+            field=models.FileField(storage=django.core.files.storage.FileSystemStorage(location=b'/home/kelepirci/palamar-dashboard/palamar/files'), upload_to=b''),
         ),
     ]
