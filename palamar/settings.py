@@ -16,7 +16,7 @@ DEBUG = True
 ALLOWED_HOSTS = [
     'palamar',
     '127.0.0.1',
-    'demo.palamar.com'
+    'demo.palamar.io'
 ]
 
 # fullt qualified hostname or domain. Ex <http://domain.tld/>
@@ -136,7 +136,7 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'palamar',
-        'USER': 'root',
+        'USER': 'palamar',
         'PASSWORD': 'password',
         'HOST': 'localhost',
         'PORT': '',
