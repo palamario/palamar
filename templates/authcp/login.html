@@ -1,7 +1,7 @@
 {% extends "base_headless.html" %}
 {% load i18n %}
 
-{% block title %}<title>palamar | Log in</title>{% endblock title %}
+{% block title %}<title>Palamar | Log in</title>{% endblock title %}
 
 {% block content %}
 
@@ -43,8 +43,9 @@
       <p>- OR -</p>
       <a href="#" class="btn btn-block btn-social btn-facebook btn-flat"><i class="fa fa-facebook"></i> Sign in using
         Facebook</a>
-      <a href="#" class="btn btn-block btn-social btn-google btn-flat"><i class="fa fa-google-plus"></i> Sign in using
-        Google+</a>
+      <a href="{% url "social:begin" "google-oauth2" %}" class="btn btn-block btn-social btn-google btn-flat">
+        <i class="fa fa-google-plus"></i> Sign in using Google+
+      </a>
     </div>
     <!-- /.social-auth-links -->
 

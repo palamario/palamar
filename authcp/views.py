@@ -133,3 +133,11 @@ def activation(request, key):
         # Display : error message
         already_active = True
     return render(request, 'authcp/activation.html', locals())
+
+
+# save user who is registered with google or facebook
+def save_profile(backend, user, response, *args, **kwargs):
+    if backend.name == "google-oauth2":
+        # TODO: Add user to a user group
+        print "Google user {} is logged in".format(user)
+
