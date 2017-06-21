@@ -16,6 +16,7 @@ DEBUG = True
 ALLOWED_HOSTS = [
     'palamar',
     '127.0.0.1',
+    'localhost',
     'demo.palamar.io'
 ]
 
