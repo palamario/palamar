@@ -212,6 +212,7 @@ DEFAULT_EMAIL_FROM = 'admin@palamar.org'
 
 AUTHENTICATION_BACKENDS = (
     'social_core.backends.google.GoogleOAuth2',
+    'social_core.backends.facebook.FacebookOAuth2',
     'django.contrib.auth.backends.ModelBackend',
 )
 
@@ -233,5 +234,18 @@ SOCIAL_AUTH_PIPELINE = (
 # SECURITY WARNING: keep the secret key used in production secret!
 SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '58128956219-lobtqsd956c9cpqvsd5ml2hvaa35ps9o'
 SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = 'RNXY2W32PhAsGVZKx8WsxTmK'
+
+
+SOCIAL_AUTH_FACEBOOK_API_VERSION = '2.9'
+
+SOCIAL_AUTH_FACEBOOK_SCOPE = ['email']
+
+SOCIAL_AUTH_FACEBOOK_PROFILE_EXTRA_PARAMS = {
+    'fields': 'id,name,email',
+}
+
+SOCIAL_AUTH_FACEBOOK_KEY = '1816310968617086'  # App ID
+SOCIAL_AUTH_FACEBOOK_SECRET = '413880eed823c86f6e519afe0ae19341'  # App Secret
+
 
 

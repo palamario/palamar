@@ -138,6 +138,7 @@ def activation(request, key):
 # save user who is registered with google or facebook
 def save_profile(backend, user, response, *args, **kwargs):
     if backend.name == "google-oauth2":
-        # TODO: Add user to a user group
         print "Google user {} is logged in".format(user)
 
+    elif backend.name == "facebook":
+        print "Facebook user {} is logged in".format(user)
