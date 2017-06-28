@@ -265,3 +265,11 @@ SOCIAL_AUTH_GITHUB_KEY = '07d27678fffaa29bc2cc'
 # SECURITY WARNING: keep the secret key used in production secret!
 SOCIAL_AUTH_GITHUB_SECRET = '23991546f87c828ed1e5699a48641c3b99daeae9'
 
+# split settings
+try:
+    LOCAL_SETTINGS
+except NameError:
+    try:
+        from local_settings import *
+    except ImportError:
+        pass
