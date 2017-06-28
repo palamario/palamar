@@ -1,4 +1,5 @@
 import random, hashlib
+import logging
 
 from oslo_i18n import translate as _
 from datetime import timedelta
@@ -133,3 +134,16 @@ def activation(request, key):
         # Display : error message
         already_active = True
     return render(request, 'authcp/activation.html', locals())
+
+
+# save user who is registered with google or facebook
+def save_profile(backend, user, response, *args, **kwargs):
+
+    if backend.name == 'github':
+        logging.info(_('Github user {} is logged in'.format(user)))
+
+    elif backend.name == 'google-oauth2':
+        logging.info(_('Google user {} is logged in'.format(user)))
+
+    elif backend.name == 'facebook':
+        logging.info(_('Facebook user {} is logged in'.format(user)))
