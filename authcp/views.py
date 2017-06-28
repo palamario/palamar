@@ -141,10 +141,9 @@ def save_profile(backend, user, response, *args, **kwargs):
 
     if backend.name == 'github':
         logging.info(_('Github user {} is logged in'.format(user)))
-        print
 
     elif backend.name == 'google-oauth2':
-        print 'Google user {} is logged in'.format(user)
+        logging.info(_('Google user {} is logged in'.format(user)))
 
     elif backend.name == 'facebook':
-        print 'Facebook user {} is logged in'.format(user)
+        logging.info(_('Facebook user {} is logged in'.format(user)))
