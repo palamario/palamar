@@ -1,4 +1,5 @@
 import random, hashlib
+import logging
 
 from oslo_i18n import translate as _
 from datetime import timedelta
@@ -138,11 +139,12 @@ def activation(request, key):
 # save user who is registered with google or facebook
 def save_profile(backend, user, response, *args, **kwargs):
 
-    if backend.name == "github":
-        print "Github user {} is logged in".format(user)
+    if backend.name == 'github':
+        logging.info(_('Github user {} is logged in'.format(user)))
+        print
 
-    elif backend.name == "google-oauth2":
-        print "Google user {} is logged in".format(user)
+    elif backend.name == 'google-oauth2':
+        print 'Google user {} is logged in'.format(user)
 
-    elif backend.name == "facebook":
-        print "Facebook user {} is logged in".format(user)
+    elif backend.name == 'facebook':
+        print 'Facebook user {} is logged in'.format(user)
