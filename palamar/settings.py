@@ -232,12 +232,6 @@ SOCIAL_AUTH_PIPELINE = (
     'social_core.pipeline.social_auth.associate_by_email',
 )
 
-# Google auth settings
-
-# SECURITY WARNING: keep the secret key used in production secret!
-SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '58128956219-lobtqsd956c9cpqvsd5ml2hvaa35ps9o'
-SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = 'RNXY2W32PhAsGVZKx8WsxTmK'
-
 
 # Facebook auth settings
 SOCIAL_AUTH_FACEBOOK_API_VERSION = '2.9'
@@ -248,22 +242,13 @@ SOCIAL_AUTH_FACEBOOK_PROFILE_EXTRA_PARAMS = {
     'fields': 'id,name,email',
 }
 
-SOCIAL_AUTH_FACEBOOK_KEY = '1816310968617086'
-# SECURITY WARNING: keep the secret key used in production secret!
-SOCIAL_AUTH_FACEBOOK_SECRET = '413880eed823c86f6e519afe0ae19341'
-
 
 # GITHUB auth settings
-
 SOCIAL_AUTH_GITHUB_SCOPE = ['email']
 
 SOCIAL_AUTH_GITHUB_PROFILE_EXTRA_PARAMS = {
     'fields': 'name,email',
 }
-
-SOCIAL_AUTH_GITHUB_KEY = '07d27678fffaa29bc2cc'
-# SECURITY WARNING: keep the secret key used in production secret!
-SOCIAL_AUTH_GITHUB_SECRET = '23991546f87c828ed1e5699a48641c3b99daeae9'
 
 # split settings
 try:
