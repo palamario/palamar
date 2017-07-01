@@ -54,6 +54,13 @@ def split_column(value):
     splitted_value = value.split(":")
     return splitted_value
 
+@register.filter()
+def sizeof_fmt(num, suffix='B'):
+    for unit in ['','Ki','Mi','Gi','Ti','Pi','Ei','Zi']:
+        if abs(num) < 1024.0:
+            return "%3.2f %s%s" % (num, unit, suffix)
+        num /= 1024.0
+    return "%.1f%s%s" % (num, 'Yi', suffix)
 
 # Tags
 @register.assignment_tag()
