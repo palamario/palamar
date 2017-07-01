@@ -10,11 +10,17 @@ from django.conf import settings
 
 register = library.Library()
 
-
+# Filters
 @register.filter(expects_localtime=True)
 def parse_iso(value):
     return parse(value)
 
+@register.filter(expects_localtime=True)
+def parse_timestamp(value):
+    try:
+        return datetime.datetime.fromtimestamp(value)
+    except AttributeError as e:
+        return e
 
 @register.filter(expects_localtime=True)
 def since_created(value):
@@ -43,7 +49,13 @@ def since_created(value):
         readable_format = _('%s %s, %s %s' % (td.days, day, td.seconds // 3600, hour))
     return readable_format
 
+@register.filter()
+def split_column(value):
+    splitted_value = value.split(":")
+    return splitted_value
 
+
+# Tags
 @register.assignment_tag()
 def return_sites():
     from sites.models import Sites
@@ -73,3 +85,4 @@ def return_assigned_domains():
     assigned_domains = assigned_domains.values('target_domain_id', 'target_domain__name')
     assigned_domains = assigned_domains.annotate(dcount=Count('target_domain_id'))
     return assigned_domains
+
