@@ -14,7 +14,7 @@ from palamar.drivers.docker_api import ConnectDocker
 def index(request):
     return render(request, "image/index.html", {})
 
-
+@login_required
 def image_list(request):
     title = _("Manage Images")
     subtitle = _("create,list and manage images")
