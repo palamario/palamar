@@ -29,4 +29,5 @@ urlpatterns = [
     url(r'^network/', include('network.urls')),
     url(r'^project/', include('project.urls')),
     url(r'^oauth/', include('social_django.urls', namespace='social')),
+    url(r'^volume/', include('volume.urls')),
 ]
