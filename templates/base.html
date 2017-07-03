@@ -2,6 +2,7 @@
 <html lang="en">
 
 {% load static %}
+{% load i18n %}
 
 <head>
   <meta charset="utf-8">
@@ -57,7 +58,7 @@
     <nav class="navbar navbar-static-top">
       <!-- Sidebar toggle button-->
       <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
-        <span class="sr-only">Toggle navigation</span>
+        <span class="sr-only">{% trans "Toggle navigation" %}</span>
       </a>
       {% include 'top_menu.html' %}
     </nav>
@@ -81,7 +82,7 @@
       <!-- /.search form -->
       <!-- sidebar menu: : style can be found in sidebar.less -->
       <ul class="sidebar-menu">
-        <li class="header">MAIN NAVIGATION</li>
+        <li class="header">{% trans "MAIN NAVIGATION" %}</li>
         <li class="treeview">
           <a href="#">
             <i class="fa fa-dashboard"></i> <span>Dash</span>
@@ -90,57 +91,57 @@
         <li class="treeview">
           <a href="#">
             <i class="fa fa-microchip"></i>
-            <span>Apps</span>
+            <span>{% trans "Apps" %}</span>
           </a>
         </li>
         <li class="treeview">
           <a href="{% url 'container-list' %}">
             <i class="fa fa-cubes"></i>
-            <span>Containers</span>
+            <span>{% trans "Containers" %}</span>
           </a>
         </li>
         <li class="treeview">
           <a href="{% url 'image-index' %}">
             <i class="fa fa-picture-o"></i>
-            <span>Images</span>
+            <span>{% trans "Images" %}</span>
           </a>
         </li>
         <li class="treeview">
           <a href="{% url 'network-index' %}">
             <i class="fa fa-snowflake-o"></i>
-            <span>Networking</span>
+            <span>{% trans "Networking" %}</span>
           </a>
         </li>
         <li class="treeview">
           <a href="{% url 'volume-index' %}">
             <i class="fa fa-hdd-o"></i>
-            <span>Volumes</span>
+            <span>{% trans "Volumes" %}</span>
           </a>
         </li>
         <li class="treeview">
           <a href="#">
             <i class="fa fa-shield"></i>
-            <span>Security</span>
+            <span>{% trans "Security" %}</span>
           </a>
         </li>
       </ul>
       <ul class="sidebar-menu">
-        <li class="header">ADMIN NAVIGATION</li>
+        <li class="header">{% trans "ADMIN NAVIGATION" %}</li>
         <li class="treeview">
           <a href="#">
-            <i class="fa fa-dashboard"></i> <span>Admin Dash</span>
+            <i class="fa fa-dashboard"></i> <span>{% trans "Admin Dash" %}</span>
           </a>
         </li>
         <li class="treeview">
           <a href="#">
             <i class="fa fa-server"></i>
-            <span>Users</span>
+            <span>{% trans "Users" %}</span>
           </a>
         </li>
         <li class="treeview">
           <a href="{% url 'sites-list' %}">
             <i class="fa fa-sitemap"></i>
-            <span>Sites</span>
+            <span>{% trans "Sites" %}</span>
           </a>
         </li>
       </ul>

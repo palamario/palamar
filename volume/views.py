@@ -2,13 +2,12 @@ import datetime
 import logging
 from oslo_i18n import translate as _
 
-
 from django.contrib.auth.decorators import login_required
-from django.shortcuts import render,redirect
+from django.shortcuts import render, redirect
 from django.contrib import messages
 
-
 from palamar.drivers.docker_api import ConnectDocker
+
 
 @login_required
 def index(request):
@@ -24,7 +23,6 @@ def volume_list(request):
     client = conn.docker_connect_api()
     volumes = client.volumes()
 
-
     return render(request, "volume/volume_list.html", {"volumes": volumes,
-                                                         "title": title,
-                                                         "subtitle": subtitle,})
+                                                       "title": title,
+                                                       "subtitle": subtitle, })
