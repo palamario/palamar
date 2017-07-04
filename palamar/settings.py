@@ -59,6 +59,7 @@ INSTALLED_APPS = [
     'role',
     'quota',
     'social_django',
+    'volume',
 ]
 
 MIDDLEWARE = [

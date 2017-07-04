@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% load i18n %}
 
-{% block title %}Container List{% endblock title %}
+{% block title %}{{ title }}{% endblock title %}
 
 {% block content-header %}
     <!-- Content Header (Page header) -->
@@ -31,13 +31,13 @@
               <table id="example2" class="table table-bordered table-hover">
                 <thead>
                 <tr>
-                  <th>Name</th>
-                  <th>Image</th>
-                  <th>Network</th>
-                  <th>Status</th>
-                  <th>Since Created</th>
-                  <th>Since Running</th>
-                  <th>Action</th>
+                  <th>{% trans "Name" %}</th>
+                  <th>{% trans "Image" %}</th>
+                  <th>{% trans "Network" %}</th>
+                  <th>{% trans "Satus" %}</th>
+                  <th>{% trans "Since Created" %}</th>
+                  <th>{% trans "Since Running" %}</th>
+                  <th>{% trans "Action" %}</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -84,13 +84,13 @@
                 </tbody>
                 <tfoot>
                 <tr>
-                  <th>Name</th>
-                  <th>Image</th>
-                  <th>Network</th>
-                  <th>Status</th>
-                  <th>Since Created</th>
-                  <th>Since Running</th>
-                  <th>Action</th>
+                  <th>{% trans "Name" %}</th>
+                  <th>{% trans "Image" %}</th>
+                  <th>{% trans "Network" %}</th>
+                  <th>{% trans "Satus" %}</th>
+                  <th>{% trans "Since Created" %}</th>
+                  <th>{% trans "Since Running" %}</th>
+                  <th>{% trans "Action" %}</th>
                 </tr>
                 </tfoot>
               </table>

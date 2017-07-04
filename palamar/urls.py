@@ -25,6 +25,9 @@ urlpatterns = [
     url(r'^admincp/sites/', include('sites.urls')),
     url(r'^container/', include('container.urls')),
     url(r'^domain/', include('domain.urls')),
+    url(r'^image/', include('image.urls')),
+    url(r'^network/', include('network.urls')),
     url(r'^project/', include('project.urls')),
     url(r'^oauth/', include('social_django.urls', namespace='social')),
+    url(r'^volume/', include('volume.urls')),
 ]

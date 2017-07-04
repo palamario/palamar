@@ -1,0 +1,102 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block title %}{{ title }}{% endblock title %}
+
+{% block content-header %}
+    <!-- Content Header (Page header) -->
+    <section class="content-header" style="margin-bottom: 10px;">
+      <h1>
+        {{ title }}
+        <small>{{ subtitle }}</small>
+      </h1>
+    <div class="breadcrumb">
+      <a href="{% url 'site-create' %}">
+        <button type="button" class="btn btn-block btn-info btn-flat">
+          {% trans "New Image" %}
+        </button>
+      </a>
+    </div>
+    </section>
+{% endblock content-header %}
+
+{% block content %}
+    <!-- Main content -->
+    <section class="content">
+      {% include "messages.html" %}
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="box">
+            <div class="box-body">
+              <table id="example2" class="table table-bordered table-hover">
+                <thead>
+                <tr>
+                  <th>{% trans "ID" %}</th>
+                  <th>{% trans "Repository" %}</th>
+                  <th>{% trans "Tag" %}</th>
+                  <th>{% trans "Since Created" %}</th>
+                  <th>{% trans "Size" %}</th>
+                  <th>{% trans "Action" %}</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% load custom_tags %}
+                {% for image in images %}
+                <tr>
+                  <td>
+                    {% with image.short_id|split_column as image_id %}
+                    {{ image_id.1 }}
+                    {% endwith %}
+                  </td>
+                  {% with image.tags.0 as image_tags %}
+                  {% with image_tags|split_column as image_tags %}
+                  <td>{{ image_tags.0 }}</td>
+                  <td>
+                    {% for image_tag in image.tags  %}
+                      {% with image_tag|split_column as image_tags_only %}
+                        {{ image_tags_only.1 }}
+                      {% endwith %}
+                    {% endfor %}
+                  </td>
+                  {% endwith %}
+                  {% endwith %}
+                  <td>
+                      {{ image.attrs.Created|parse_timestamp|timesince }}
+                  </td>
+                  <td>{{ image.attrs.Size|sizeof_fmt }}</td>
+                  <td>
+                    <a href="">
+                        {% trans "Edit" %}
+                    </a>
+                    -
+                    <a href="">
+                        {% trans 'Remove' %}
+                    </a>
+                  </td>
+                </tr>
+                {% endfor %}
+                </tbody>
+                <tfoot>
+                <tr>
+                  <th>{% trans "ID" %}</th>
+                  <th>{% trans "Repository" %}</th>
+                  <th>{% trans "Tag" %}</th>
+                  <th>{% trans "Since Created" %}</th>
+                  <th>{% trans "Size" %}</th>
+                  <th>{% trans "Action" %}</th>
+                </tr>
+                </tfoot>
+              </table>
+            </div>
+            <!-- /.box-body -->
+          </div>
+          <!-- /.box -->
+
+        </div>
+        <!-- /.col -->
+      </div>
+      <!-- /.row -->
+    </section>
+    <!-- /.content -->
+
+{% endblock content %}

@@ -1,0 +1,82 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block title %}{{ title }}{% endblock title %}
+
+{% block content-header %}
+    <!-- Content Header (Page header) -->
+    <section class="content-header" style="margin-bottom: 10px;">
+      <h1>
+        {{ title }}
+        <small>{{ subtitle }}</small>
+      </h1>
+    <div class="breadcrumb">
+      <a href="{% url 'site-create' %}">
+        <button type="button" class="btn btn-block btn-info btn-flat">
+          {% trans "New Network" %}
+        </button>
+      </a>
+    </div>
+    </section>
+{% endblock content-header %}
+
+{% block content %}
+    <!-- Main content -->
+    <section class="content">
+      {% include "messages.html" %}
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="box">
+            <div class="box-body">
+              <table id="example2" class="table table-bordered table-hover">
+                <thead>
+                <tr>
+                  <th>{% trans "Name" %}</th>
+                  <th>{% trans "Mount Point" %}</th>
+                  <th>{% trans "Driver" %}</th>
+                  <th>{% trans "Scope" %}</th>
+                  <th>{% trans "Action" %}</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for volume in volumes.Volumes %}
+                <tr>
+                  <td>{{ volume.Name }}</td>
+                  <td>{{ volume.Mountpoint }}</td>
+                  <td>{{ volume.Driver }}</td>
+                  <td>{{ volume.Scope }}</td>
+                  <td>
+                    <a href="">
+                        {% trans "Edit" %}
+                    </a>
+                    -
+                    <a href="">
+                        {% trans 'Remove' %}
+                    </a>
+                  </td>
+                </tr>
+                {% endfor %}
+                </tbody>
+                <tfoot>
+                  <tr>
+                  <th>{% trans "Name" %}</th>
+                  <th>{% trans "Mount Point" %}</th>
+                  <th>{% trans "Driver" %}</th>
+                  <th>{% trans "Scope" %}</th>
+                  <th>{% trans "Action" %}</th>
+                </tr>
+                </tfoot>
+              </table>
+            </div>
+            <!-- /.box-body -->
+          </div>
+          <!-- /.box -->
+
+        </div>
+        <!-- /.col -->
+      </div>
+      <!-- /.row -->
+    </section>
+    <!-- /.content -->
+
+{% endblock content %}

@@ -1,0 +1,103 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block title %}{{ title }}{% endblock title %}
+
+{% block content-header %}
+    <!-- Content Header (Page header) -->
+    <section class="content-header" style="margin-bottom: 10px;">
+      <h1>
+        {{ title }}
+        <small>{{ subtitle }}</small>
+      </h1>
+    <div class="breadcrumb">
+      <a href="{% url 'site-create' %}">
+        <button type="button" class="btn btn-block btn-info btn-flat">
+          {% trans "New Network" %}
+        </button>
+      </a>
+    </div>
+    </section>
+{% endblock content-header %}
+
+{% block content %}
+    <!-- Main content -->
+    <section class="content">
+      {% include "messages.html" %}
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="box">
+            <div class="box-body">
+              <table id="example2" class="table table-bordered table-hover">
+                <thead>
+                <tr>
+                  <th>{% trans "Network ID" %}</th>
+                  <th>{% trans "Name" %}</th>
+                  <th>{% trans "Subnet" %}</th>
+                  <th>{% trans "Gateway" %}</th>
+                  <th>{% trans "Driver" %}</th>
+                  <th>{% trans "Scope" %}</th>
+                  <th>{% trans "Since Created" %}</th>
+                  <th>{% trans "Action" %}</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% load custom_tags %}
+                {% for network in networks %}
+                <tr>
+                  <td>{{ network.Id|truncatechars:10 }}</td>
+                  <td>{{ network.Name }}</td>
+                  <td>
+                      {% for subnet in network.IPAM.Config %}
+                      {{ subnet.Subnet }}
+                      {% endfor %}
+                  </td>
+                  <td>
+                      {% for subnet in network.IPAM.Config %}
+                      {{ subnet.Gateway }}
+                      {% endfor %}
+                  </td>
+                  <td>{{ network.IPAM.Driver }}</td>
+                  <td>{{ network.Scope }}</td>
+                  {% load custom_tags %}
+                  {% with network.Created|parse_iso as created_date %}
+                  <td>{{ created_date|timesince }}</td>
+                  {% endwith %}
+                  <td>
+                    <a href="">
+                        {% trans "Edit" %}
+                    </a>
+                    -
+                    <a href="">
+                        {% trans 'Remove' %}
+                    </a>
+                  </td>
+                </tr>
+                {% endfor %}
+                </tbody>
+                <tfoot>
+                  <tr>
+                  <th>{% trans "Network ID" %}</th>
+                  <th>{% trans "Name" %}</th>
+                  <th>{% trans "Subnet" %}</th>
+                  <th>{% trans "Gateway" %}</th>
+                  <th>{% trans "Driver" %}</th>
+                  <th>{% trans "Scope" %}</th>
+                  <th>{% trans "Since Created" %}</th>
+                  <th>{% trans "Action" %}</th>
+                </tr>
+                </tfoot>
+              </table>
+            </div>
+            <!-- /.box-body -->
+          </div>
+          <!-- /.box -->
+
+        </div>
+        <!-- /.col -->
+      </div>
+      <!-- /.row -->
+    </section>
+    <!-- /.content -->
+
+{% endblock content %}
