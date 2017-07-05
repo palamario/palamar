@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-03-31 06:33+0000\n"
+"POT-Creation-Date: 2017-07-04 19:03+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,35 +18,115 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
-#: authcp/forms.py:8
+#: authcp/forms.py:12
 msgid "Email"
 msgstr ""
 
-#: authcp/forms.py:10
+#: authcp/forms.py:14
 msgid "Password"
 msgstr ""
 
-#: authcp/forms.py:14
+#: authcp/forms.py:18
 msgid "Password (Again)"
 msgstr ""
 
-#: authcp/forms.py:19
-msgid "You must accept TOS."
+#: authcp/forms.py:22
+msgid "Project Name"
+msgstr ""
+
+#: authcp/forms.py:24
+msgid "Please enter your project name!"
 msgstr ""
 
 #: authcp/forms.py:28
+msgid "You must accept TOS."
+msgstr ""
+
+#: authcp/forms.py:37
 msgid "Email address is not available."
 msgstr ""
 
-#: authcp/forms.py:36
+#: authcp/forms.py:45
 msgid "Password do not match."
 msgstr ""
 
-#: authcp/views.py:52
+#: authcp/forms.py:54
+msgid "Project name is not available."
+msgstr ""
+
+#: authcp/views.py:99
 msgid "Welcome to our cloud"
 msgstr ""
 
+#: authcp/views.py:143
+msgid "Github user {} is logged in"
+msgstr ""
+
+#: authcp/views.py:146
+msgid "Google user {} is logged in"
+msgstr ""
+
+#: authcp/views.py:149
+msgid "Facebook user {} is logged in"
+msgstr ""
+
+#: container/views.py:20
+msgid "Create Container"
+msgstr ""
+
+#: container/views.py:21
+msgid "create a new container"
+msgstr ""
+
+#: container/views.py:28
+msgid "Manage Container"
+msgstr ""
+
+#: container/views.py:29
+msgid "create,list and manage containers"
+msgstr ""
+
+#: container/views.py:48
+#, python-format
+msgid "Container \"%s\" started!"
+msgstr ""
+
+#: container/views.py:59
+#, python-format
+msgid "Container \"%s\" stopped!"
+msgstr ""
+
+#: container/views.py:70
+#, python-format
+msgid "Container \"%s\" removed!"
+msgstr ""
+
+#: domain/views.py:27
+msgid "Domain does not have any project!"
+msgstr ""
+
+#: image/views.py:19
+msgid "Manage Images"
+msgstr ""
+
+#: image/views.py:20
+msgid "create,list and manage images"
+msgstr ""
+
+#: network/views.py:19
+msgid "Manage Network"
+msgstr ""
+
+#: network/views.py:20
+msgid "create,list and manage networks"
+msgstr ""
+
 #: sites/forms.py:9 sites/forms.py:37
+#: templates/container/container_list.html:34
+#: templates/container/container_list.html:87
+#: templates/network/network_list.html:35
+#: templates/network/network_list.html:81 templates/volume/volume_list.html:34
+#: templates/volume/volume_list.html:62
 msgid "Name"
 msgstr ""
 
@@ -70,54 +150,226 @@ msgstr ""
 msgid "Verify SSL"
 msgstr ""
 
-#: sites/views.py:16
+#: sites/views.py:20
 msgid "New Site"
 msgstr ""
 
-#: sites/views.py:17
+#: sites/views.py:21
 msgid "create new site"
 msgstr ""
 
-#: sites/views.py:30
+#: sites/views.py:34
 msgid "New site has been created!"
 msgstr ""
 
-#: sites/views.py:44
+#: sites/views.py:49
 msgid "List of Sites"
 msgstr ""
 
-#: sites/views.py:45
+#: sites/views.py:50
 msgid "list all sites"
 msgstr ""
 
-#: sites/views.py:46
+#: sites/views.py:51 templates/base.html:144
 msgid "Sites"
 msgstr ""
 
-#: sites/views.py:56 sites/views.py:58
+#: sites/views.py:62 sites/views.py:64
 msgid "Edit Site"
 msgstr ""
 
-#: sites/views.py:57
+#: sites/views.py:63
 msgid "update details of a site"
 msgstr ""
 
-#: sites/views.py:76
+#: sites/views.py:82
 msgid "Site updated!"
 msgstr ""
 
-#: sites/views.py:92 sites/views.py:94
-msgid "Delete Site"
-msgstr ""
-
-#: sites/views.py:93
-msgid "are you sure to delete"
-msgstr ""
-
-#: sites/views.py:97
+#: sites/views.py:101
 msgid "Site deleted!"
 msgstr ""
 
+#: templates/base.html:61
+msgid "Toggle navigation"
+msgstr ""
+
+#: templates/base.html:85
+msgid "MAIN NAVIGATION"
+msgstr ""
+
+#: templates/base.html:94
+msgid "Apps"
+msgstr ""
+
+#: templates/base.html:100
+msgid "Containers"
+msgstr ""
+
+#: templates/base.html:106
+msgid "Images"
+msgstr ""
+
+#: templates/base.html:112
+msgid "Networking"
+msgstr ""
+
+#: templates/base.html:118
+msgid "Volumes"
+msgstr ""
+
+#: templates/base.html:124
+msgid "Security"
+msgstr ""
+
+#: templates/base.html:129
+msgid "ADMIN NAVIGATION"
+msgstr ""
+
+#: templates/base.html:132
+msgid "Admin Dash"
+msgstr ""
+
+#: templates/base.html:138
+msgid "Users"
+msgstr ""
+
+#: templates/container/container_create.html:16
 #: templates/container/container_list.html:16
 msgid "New Container"
+msgstr ""
+
+#: templates/container/container_list.html:35
+#: templates/container/container_list.html:88
+msgid "Image"
+msgstr ""
+
+#: templates/container/container_list.html:36
+#: templates/container/container_list.html:89
+msgid "Network"
+msgstr ""
+
+#: templates/container/container_list.html:37
+#: templates/container/container_list.html:90
+msgid "Satus"
+msgstr ""
+
+#: templates/container/container_list.html:38
+#: templates/container/container_list.html:91
+#: templates/image/image_list.html:37 templates/image/image_list.html:84
+#: templates/network/network_list.html:40
+#: templates/network/network_list.html:86
+msgid "Since Created"
+msgstr ""
+
+#: templates/container/container_list.html:39
+#: templates/container/container_list.html:92
+msgid "Since Running"
+msgstr ""
+
+#: templates/container/container_list.html:40
+#: templates/container/container_list.html:93
+#: templates/image/image_list.html:39 templates/image/image_list.html:86
+#: templates/network/network_list.html:41
+#: templates/network/network_list.html:87 templates/volume/volume_list.html:38
+#: templates/volume/volume_list.html:66
+msgid "Action"
+msgstr ""
+
+#: templates/container/container_list.html:59
+msgid "Not Running"
+msgstr ""
+
+#: templates/container/container_list.html:66
+msgid "Stop"
+msgstr ""
+
+#: templates/container/container_list.html:70
+msgid "Start"
+msgstr ""
+
+#: templates/container/container_list.html:78
+#: templates/image/image_list.html:73 templates/network/network_list.html:72
+#: templates/volume/volume_list.html:54
+msgid "Remove"
+msgstr ""
+
+#: templates/image/image_list.html:16
+msgid "New Image"
+msgstr ""
+
+#: templates/image/image_list.html:34 templates/image/image_list.html:81
+msgid "ID"
+msgstr ""
+
+#: templates/image/image_list.html:35 templates/image/image_list.html:82
+msgid "Repository"
+msgstr ""
+
+#: templates/image/image_list.html:36 templates/image/image_list.html:83
+msgid "Tag"
+msgstr ""
+
+#: templates/image/image_list.html:38 templates/image/image_list.html:85
+msgid "Size"
+msgstr ""
+
+#: templates/image/image_list.html:69 templates/network/network_list.html:68
+#: templates/volume/volume_list.html:50
+msgid "Edit"
+msgstr ""
+
+#: templates/index.html:7
+msgid "Dashboard"
+msgstr ""
+
+#: templates/network/network_list.html:16 templates/volume/volume_list.html:16
+msgid "New Network"
+msgstr ""
+
+#: templates/network/network_list.html:34
+#: templates/network/network_list.html:80
+msgid "Network ID"
+msgstr ""
+
+#: templates/network/network_list.html:36
+#: templates/network/network_list.html:82
+msgid "Subnet"
+msgstr ""
+
+#: templates/network/network_list.html:37
+#: templates/network/network_list.html:83
+msgid "Gateway"
+msgstr ""
+
+#: templates/network/network_list.html:38
+#: templates/network/network_list.html:84 templates/volume/volume_list.html:36
+#: templates/volume/volume_list.html:64
+msgid "Driver"
+msgstr ""
+
+#: templates/network/network_list.html:39
+#: templates/network/network_list.html:85 templates/volume/volume_list.html:37
+#: templates/volume/volume_list.html:65
+msgid "Scope"
+msgstr ""
+
+#: templates/top_menu.html:95
+msgid "Profile"
+msgstr ""
+
+#: templates/top_menu.html:98
+msgid "Sign out"
+msgstr ""
+
+#: templates/volume/volume_list.html:35 templates/volume/volume_list.html:63
+msgid "Mount Point"
+msgstr ""
+
+#: volume/views.py:19
+msgid "Manage Volume"
+msgstr ""
+
+#: volume/views.py:20
+msgid "create,list and manage volumes"
 msgstr ""

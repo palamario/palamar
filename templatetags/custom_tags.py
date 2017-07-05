@@ -42,11 +42,11 @@ def since_created(value):
         minute = "minute"
 
     if (td.seconds // 3600) < 1:
-        readable_format = _('%s %s' % (td.seconds // 60, minute))
+        readable_format = '%s %s' % (td.seconds // 60, minute)
     elif td.days <= 0:
-        readable_format = _('%s %s' % (td.seconds // 3600, hour))
+        readable_format = '%s %s' % (td.seconds // 3600, hour)
     else:
-        readable_format = _('%s %s, %s %s' % (td.days, day, td.seconds // 3600, hour))
+        readable_format = '%s %s, %s %s' % (td.days, day, td.seconds // 3600, hour)
     return readable_format
 
 @register.filter()
