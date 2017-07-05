@@ -1,0 +1,47 @@
+{% extends "base_headless.html" %}
+{% load i18n %}
+
+{% block title %}<title>Palamar | {{ title }}</title>{% endblock title %}
+
+{% block content %}
+
+    <div class="register-box">
+        <div class="register-logo">
+            <a href="{{ SITE_URL }}">Palamar</a>
+        </div>
+
+        <div class="register-box-body">
+            <p class="login-box-msg">{% trans 'Crate Your First Project' %}</p>
+            <form action="/project/create/" method="POST">
+                <span class="text-red"> {{ form.errors.project.as_text }} </span>
+                <div class="form-group has-feedback">
+                    <input name="project" type="text" class="form-control"
+                           placeholder="{% trans 'Enter a project name' %} ">
+                    <span class="glyphicon glyphicon-folder-close form-control-feedback"></span>
+                </div>
+                <div class="row">
+                    <span class="text-red" style="margin-left: 15px;"> {{ form.errors.tos.as_text }} </span>
+                    <div class="col-xs-8">
+                        <div class="checkbox icheck">
+                            <label>
+                                <input name="tos" type="checkbox">
+                                <a href="#">{% trans 'I agree to the terms' %}</a>
+                            </label>
+                        </div>
+                    </div>
+                    <!-- /.col -->
+                    <div class="col-xs-4">
+                        <button type="submit" class="btn btn-primary btn-block btn-flat">
+                            {% trans 'Register' %}
+                        </button>
+                    </div>
+                    <!-- /.col -->
+                </div>
+                {% csrf_token %}
+            </form>
+
+        </div>
+        <!-- /.form-box -->
+    </div>
+    <!-- /.register-box -->
+{% endblock content %}
