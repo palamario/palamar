@@ -115,4 +115,5 @@ def create_project(request):
     else:
         form = ProjectForm()
 
-    return render(request, 'project/create.html', {'form': form})
+    title = _("Create Project")
+    return render(request, 'project/create.html', {'form': form, 'title': title})
