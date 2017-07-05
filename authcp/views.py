@@ -107,7 +107,9 @@ def register_user(request):
             print(form.errors)
     else:
         form = UserRegisterForm()
-    return render(request, 'authcp/register.html', {'form': form})
+
+    title = "Register"
+    return render(request, 'authcp/register.html', {'form': form, 'title': title})
 
 
 # user registration success page
