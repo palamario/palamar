@@ -62,6 +62,10 @@ def sizeof_fmt(num, suffix='B'):
         num /= 1024.0
     return "%.1f%s%s" % (num, 'Yi', suffix)
 
+@register.filter
+def column_slash(value):
+    return value.replace(":","/")
+
 # Tags
 @register.assignment_tag()
 def return_sites():

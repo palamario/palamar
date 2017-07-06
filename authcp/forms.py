@@ -53,6 +53,3 @@ class UserRegisterForm(forms.Form):
             return project
         raise forms.ValidationError(_('Project name is not available.'))
 
-
-class ContainerCreateForm(forms.Form):
-    pass
