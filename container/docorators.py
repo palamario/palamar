@@ -7,7 +7,7 @@ from django.contrib import messages
 from palamar.drivers.docker_api import ConnectDocker
 
 
-def user_permission_container(function):
+def container_permission_required(function):
     def wrap(request, *args, **kwargs):
         user_profile = request.user.profile
         conn = ConnectDocker(user_profile.selected_site)

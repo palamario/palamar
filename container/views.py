@@ -9,7 +9,7 @@ from django.shortcuts import render, redirect
 from django.contrib import messages
 
 from .forms import ContainerCreateForm
-from .docorators import user_permission_container
+from .docorators import container_permission_required
 
 from palamar.drivers.docker_api import ConnectDocker
 
@@ -109,7 +109,7 @@ def container_list(request):
 
 
 @login_required
-@user_permission_container
+@container_permission_required
 def container_start(request, container_id):
     user_profile = request.user.profile
     conn = ConnectDocker(user_profile.selected_site)
@@ -121,6 +121,7 @@ def container_start(request, container_id):
 
 
 @login_required
+@container_permission_required
 def container_stop(request, container_id):
     user_profile = request.user.profile
     conn = ConnectDocker(user_profile.selected_site)
@@ -132,6 +133,7 @@ def container_stop(request, container_id):
 
 
 @login_required
+@container_permission_required
 def container_remove(request, container_id):
     user_profile = request.user.profile
     conn = ConnectDocker(user_profile.selected_site)
