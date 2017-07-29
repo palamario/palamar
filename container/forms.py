@@ -17,5 +17,15 @@ class ContainerCreateForm(forms.Form):
         label=_('Name'),
         required=True,
     )
-    image = forms.CharField(label=_('Image'))
-    network = forms.CharField(label=_('Network'))
+    image = forms.CharField(
+        label=_('Image'),
+        required=True
+    )
+    command = forms.CharField(
+        label=_('Command'),
+        required=True
+    )
+    network = forms.CharField(
+        label=_('Network'),
+        required=True
+    )

@@ -37,12 +37,17 @@
                       {% for image in images %}
                       {% with image.id|split_column as image_id %}
                       {% with image.tags.0 as image_tags %}
-                      <option value="{{ image_tags }}">{{ image_tags|column_slash }}</option>
+                      <option value="{{ image_tags }}">{{ image_tags|column_to_slash }}</option>
                       {% endwith %}
                       {% endwith %}
                       {% endfor %}
                   </select>
                   <span class="text-red"> {{ form.errors.image.as_text }} </span>
+                </div>
+                <div class="form-group">
+                  <label for="name">Command:</label>
+                  <input type="text" name="command" class="form-control" id="command" value="" placeholder="Enter a command to run">
+                  <span class="text-red"> {{ form.errors.command.as_text }} </span>
                 </div>
                 <div class="form-group">
                   <label for="url">Select Network:</label>

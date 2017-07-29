@@ -63,7 +63,7 @@ def sizeof_fmt(num, suffix='B'):
     return "%.1f%s%s" % (num, 'Yi', suffix)
 
 @register.filter
-def column_slash(value):
+def column_to_slash(value):
     return value.replace(":","/")
 
 # Tags
