@@ -52,3 +52,4 @@ class UserRegisterForm(forms.Form):
         except ObjectDoesNotExist:
             return project
         raise forms.ValidationError(_('Project name is not available.'))
+

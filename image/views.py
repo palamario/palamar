@@ -25,5 +25,5 @@ def image_list(request):
 
 
     return render(request, "image/image_list.html", {"images": images,
-                                                             "title": title,
-                                                             "subtitle": subtitle,})
+                                                     "title": title,
+                                                     "subtitle": subtitle,})

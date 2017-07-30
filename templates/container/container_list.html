@@ -11,7 +11,7 @@
         <small>{{ subtitle }}</small>
       </h1>
     <div class="breadcrumb">
-      <a href="{% url 'site-create' %}">
+      <a href="{% url 'container-create' %}">
         <button type="button" class="btn btn-block btn-info btn-flat">
           {% trans "New Container" %}
         </button>
@@ -43,7 +43,11 @@
                 <tbody>
                 {% for container in containers %}
                 <tr>
-                  <td>{{ container.name }}</td>
+                  <td>
+                    <a href="{% url 'container-details' container_id=container.id %}">
+                    {{ container.name }}
+                    </a>
+                  </td>
                   <td>{{ container.attrs.Config.Image }}</td>
                   <td>{{ container.attrs.NetworkSettings.IPAddress }}</td>
                   <td>{{ container.status}}</td>

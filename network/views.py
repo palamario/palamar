@@ -22,7 +22,7 @@ def network_list(request):
     conn = ConnectDocker(user_profile.selected_site)
     client = conn.docker_connect_api()
     networks = client.networks()
-
+    networks = sorted(networks)
 
     return render(request, "network/network_list.html", {"networks": networks,
                                                          "title": title,
