@@ -1,0 +1,23 @@
+{
+  "name": "Palamar.io",
+  "homepage": "http://palamar.io",
+  "authors": [
+    "Ferhat Özkargarlı <ozkasgarli@gmail.com>",
+    "Samet Balta <sametbalta55@gmail.com>"
+  ],
+  "description": "Docker control panel",
+  "main": "",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "font-awesome": "^4.7.0",
+    "Ionicons": "ionicons#^2.0.1",
+    "flot-charts": "*"
+  }
+}
