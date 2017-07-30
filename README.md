@@ -5,5 +5,6 @@ Docker controle panel for providers.
 * npm
 * mariadb 10.1
 * bower
+  * flot-charts
 
 
