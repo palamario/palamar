@@ -88,7 +88,21 @@ def container_create(request):
                                                                "images": images,
                                                                "networks": networks, })
 
+@login_required
+def container_details(request,container_id):
+    title = _("Container Details")
+    subtitle = _("details of the container")
+    user_profile = request.user.profile
+    conn = ConnectDocker(user_profile.selected_site)
+    client = conn.docker_connect()
+    container = client.containers.get(container_id)
 
+    return render(request,
+                  "container/container_details.html",
+                  {"title": title,
+                   "subtitle": subtitle,
+                   "container": container
+                  })
 @login_required
 def container_list(request):
     title = _("Manage Container")
