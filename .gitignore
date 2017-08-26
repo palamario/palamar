@@ -71,4 +71,7 @@ target/
 
 #Ipython Notebook
 .ipynb_checkpoints
-
+docs/
+/static/avatar/
+palamar/local_settings.py
+/contrib/bower_components/
