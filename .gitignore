@@ -1,7 +1,12 @@
+docs/
+/static/avatar/
+/contrib/bower_components/
 contrib/AdminLTE/bower_components
 palamar/local_settings.py
 files/
 .idea/
+package-lock.json
+node_modules
 .Trash-1000/
 *.pyc
 # Byte-compiled / optimized / DLL files
@@ -65,8 +70,3 @@ target/
 
 #Ipython Notebook
 .ipynb_checkpoints
-docs/
-/static/avatar/
-palamar/local_settings.py
-
-/contrib/bower_components/
