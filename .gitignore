@@ -9,6 +9,12 @@ package-lock.json
 node_modules
 .Trash-1000/
 *.pyc
+docs/
+/static/avatar/
+palamar/local_settings.py
+node_modules
+contrib/
+package-lock.json
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
@@ -70,3 +76,7 @@ target/
 
 #Ipython Notebook
 .ipynb_checkpoints
+docs/
+/static/avatar/
+palamar/local_settings.py
+/contrib/bower_components/
