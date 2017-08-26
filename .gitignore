@@ -1,7 +1,12 @@
+docs/
+/static/avatar/
+/contrib/bower_components/
 contrib/AdminLTE/bower_components
 palamar/local_settings.py
 files/
 .idea/
+package-lock.json
+node_modules
 .Trash-1000/
 *.pyc
 docs/
